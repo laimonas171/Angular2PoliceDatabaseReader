@@ -5,7 +5,7 @@ import {ExamplesPageComponent} from "./examples-page/examples-page.component";
 import {PageNotFoundComponent} from "./page-not-found/page-not-found.component";
 
 const routes: Routes = [
-    {path: '', redirectTo: 'start', pathMatch: 'full' },
+    {path: '', redirectTo: 'start', pathMatch: 'full'},
     {path: 'start', component: StartPageComponent},
     {path: 'examples-page', component: ExamplesPageComponent},
 
