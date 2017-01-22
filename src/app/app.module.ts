@@ -9,6 +9,7 @@ import { ExamplesPageComponent } from './examples-page/examples-page.component';
 import { StartPageComponent } from './start-page/start-page.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { TopbarComponent } from './common/components/topbar/topbar.component';
+import {ApiService} from "./common/services/api.service";
 
 @NgModule({
     declarations: [
@@ -24,7 +25,9 @@ import { TopbarComponent } from './common/components/topbar/topbar.component';
         HttpModule,
         AppRoutingModule
     ],
-    providers: [],
+    providers: [
+        ApiService
+    ],
     bootstrap: [AppComponent]
 })
 
