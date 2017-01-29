@@ -15,11 +15,11 @@ export class ExamplesPageComponent implements OnInit {
 
     ngOnInit() {
         this.apiService.getListOfForces().subscribe(
-            (result) => {
-                this.listOfForces = result.json();
-                console.log(this.listOfForces)
+            (result: Force[]) => {
+                this.listOfForces = result;
+                console.log(result)
             },
-            (error) => { console.log(error.json())},
+            (error) => { console.log(error)},
             () => { }
         );
     }
