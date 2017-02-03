@@ -3,5 +3,5 @@
 </p>
 
 <ul>
- <li *ngFor="let force of listOfForces"> {{ force.name }}</li>
+ <li *ngFor="let force of listOfForces" (click)="onForceClick(force.id)"> {{ force.name }}</li>
 </ul>

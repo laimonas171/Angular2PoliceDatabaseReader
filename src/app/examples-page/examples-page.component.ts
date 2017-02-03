@@ -13,6 +13,17 @@ export class ExamplesPageComponent implements OnInit {
     constructor(private apiService: ApiService) {
     }
 
+    onForceClick(forceId: string) {
+        this.apiService.getSpecificForce(forceId).subscribe(
+            (result) => {
+                console.log(result);
+            },
+            (error) => {
+                console.error(error);
+            }
+        );
+    }
+
     ngOnInit() {
         this.apiService.getListOfForces().subscribe(
             (result: Force[]) => {

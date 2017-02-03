@@ -4,15 +4,20 @@ import {Observable} from "rxjs";
 import {Force} from "../models/force";
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/catch';
+import {UrlResources} from "../resources/url-resources";
+import {DetailedForce} from "../models/detailed-force";
 @Injectable()
 export class ApiService {
 
-    private listOfForcesEndpoint: string = "https://data.police.uk/api/forces";
     constructor(private http: Http) {
     }
 
     getListOfForces() : Observable<Force[]> {
-        return this.http.get(this.listOfForcesEndpoint).map(this.processData).catch(this.handleError);
+        return this.http.get(UrlResources.baseForcesUrl).map(this.processData).catch(this.handleError);
+    }
+
+    getSpecificForce(forceId: string): Observable<DetailedForce> {
+        return this.http.get(`${UrlResources.baseForcesUrl}/${forceId}`).map(this.processData).catch(this.handleError);
     }
 
     protected processData<T>(response: Response): Observable<T> {
